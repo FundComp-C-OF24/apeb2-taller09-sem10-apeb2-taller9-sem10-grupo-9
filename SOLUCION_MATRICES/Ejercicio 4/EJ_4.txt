@@ -1,0 +1,69 @@
+Inicio
+    jugadorActual Como Caracter
+    juegoEnCurso, empate Como Logico
+    Definir i, j, limite Como Entero
+    limite = 3
+    Dimensión tabla[limite, limite]
+    jugadorActual = 'X'
+    juegoEnCurso = Verdadero	
+    Mientras (juegoEnCurso) 
+        Escribir("  0 1 2")
+        Para ( i = 0; i < 3; i=i+1)
+             Escribir(i, " ")
+          Para (j = 0; j < 3; j=j+1)
+              Escribir(tablero[i][j])
+              Si(j < 2)  
+                 Escribir "|"
+              FinSi
+          FinPara
+              Escribir()
+              Si(j < 2)
+              FinSi
+        FinPara
+       Escribir("Jugador ", jugadorActual, ", ingresa la fila (0-2) y la columna (0-2) separadas por espacio:")
+       Leer fila, columna
+         Mientras (fila < 0 O fila >= 3 O columna < 0 O columna >= 3 O tablero[fila][columna] ' ') 
+           Escribir("Intenta nuevamente")
+           Escribir("Jugador ", jugadorActual, ", ingresa la fila (0-2) y la columna (0-2) separadas por espacio:")
+           Leer fila, columna
+         FinMientras
+         tablero[fila][columna] = jugadorActual
+        Para (i = 0; i < 3; i=i+1) Hacer
+            Si ((tablero[i][0] == jugadorActual Y tablero[i][1] == jugadorActual Y tablero[i][2] == jugadorActual) O (tablero[0][i] == jugadorActual Y tablero[1][i] == jugadorActual Y tablero[2][i] == jugadorActual))           
+                juegoEnCurso = Falso
+            FinSi
+        FinPara
+        Si( (tablero[0][0] == jugadorActual Y tablero[1][1] == jugadorActual Y tablero[2][2] == jugadorActual) O (tablero[0][2] == jugadorActual Y tablero[1][1] ==   jugadorActual Y tablero[2][0] == jugadorActual))          
+            juegoEnCurso = Falso
+        FinSi
+        empate = Verdadero
+        Para ( i = 0; i < 3; i=i+1)
+            Para ( j = 0; j < 3; j=j+1) 
+                Si (tablero[i][j] == ' ') 
+                    empate = Falso
+                    Salir
+                FinSi
+            FinPara
+        FinPara
+        Si (empate) 
+            juegoEnCurso = Falso
+            Escribir("EMPATE!")
+        FinSi
+	Si (jugadorActual == 'X')  
+	    jugadorActual= 'O' 
+	SiNo
+	     jugadorActual = 'X'     
+    FinMientras
+    Escribir("  0 1 2")
+   Para ( i = 0; i < 3; i=i+1) 
+        Escribir(i, " ");
+        Para (int j = 0; j < 3; j=j+1)
+            Escribir(tablero[i][j])
+            Si (j < 2) 
+                Escribir("|")
+            FinSi
+        FinPara
+        Si (i < 2)
+        FinSi
+    FinPara
+ Fin

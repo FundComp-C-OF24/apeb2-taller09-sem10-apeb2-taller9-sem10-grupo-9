@@ -1,0 +1,73 @@
+Inicio 
+Definir productos como matriz bidimensional
+Definir contadorProductos = 0 como entero
+
+Repetir
+    Escribir "1. Agregar producto"
+    Escribir "2. Actualizar existencias"
+    Escribir "3. Buscar producto"
+    Escribir "4. Eliminar producto"
+    Escribir "5. Salir"
+    Escribir "Seleccione una opción:"
+    Leer opcion
+
+    Si (opcion== 1) entonces
+        Si (contadorProductos < tamProductos) entonces
+            Escribir "Ingrese nombre del producto:"
+            Leer nombreProducto
+            Escribir "Ingrese precio del producto:"
+            Leer precioProducto
+            Escribir "Ingrese cantidad del producto:"
+            Leer cantidadProducto
+            productos[contadorProductos][0] = nombreProducto
+            productos[contadorProductos][1] = precioProducto
+            productos[contadorProductos][2] = cantidadProducto
+            contadorProductos = contadorProductos + 1
+            Escribir "Producto agregado correctamente."
+        Sino
+            Escribir "Inventario lleno, no se puede agregar más productos."
+        FinSi
+    FinSi
+
+    Si (opcion ==  2) entonces
+        Escribir "Ingrese nombre del producto a actualizar:"
+        Leer nombreProducto
+        Escribir "Ingrese nueva cantidad:"
+        Leer nuevaCantidad
+        Para (i=0; i < contadorProductos; i+1)
+            Si productos[i][0] es igual a nombreProducto entonces
+                productos[i][2] = nuevaCantidad
+                Escribir "Existencias actualizadas correctamente."
+            FinSi
+        FinPara
+    FinSi
+
+    Si (opcion == 3) entonces
+        Escribir "Ingrese nombre del producto a buscar:"
+        Leer nombreProducto
+        Para (i=0; i < contadorProductos; i+1)
+            Si (productos[i][0] es igual a nombreProducto) entonces
+                Escribir "Producto encontrado:"
+                Escribir "Nombre:", productos[i][0]
+                Escribir "Precio:", productos[i][1]
+                Escribir "Cantidad:", productos[i][2]
+            FinSi
+        FinPara
+        Escribir "Producto no encontrado."
+    FinSi
+
+    Si (opcion == 4) entonces
+        Escribir "Ingrese nombre del producto a eliminar:"
+        Leer nombreProducto
+        Para (i = 0; i < contadorProductos; i+1)
+            Si productos[i][0] es igual a nombreProducto entonces
+                Para j desde i hasta contadorProductos - 1
+                    productos[j] = productos[j + 1]
+                FinPara
+                contadorProductos = contadorProductos - 1
+                Escribir "Producto eliminado correctamente."
+            FinSi
+        FinPara
+        Escribir "Producto no encontrado."
+    FinSi
+Fin

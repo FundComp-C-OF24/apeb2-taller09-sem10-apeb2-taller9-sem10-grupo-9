@@ -1,0 +1,39 @@
+Inicio
+    Definir limMt, i, j Como Entero
+    Escribir "Ingrese el tamaño de la matriz cuadrada"
+    Leer limMt
+    Dimension mt[limMt, limMt]
+	
+    Para i = 0 Hasta limMt Hacer
+        Para j = 0 Hasta limMt Hacer
+            mt[i, j] = Aleatorio(-9, 9)
+        FinPara
+    FinPara
+	
+    Escribir "Matriz Completa"
+    Para i = 0 Hasta limMt Hacer
+        Para j = 0 Hasta limMt Hacer
+            Escribir mt[i, j]
+        FinPara
+    FinPara
+    Para i = 0 Hasta limMt Hacer
+        Escribir mt[i, i]
+    FinPara
+       
+    Para i = 0 Hasta limMt Hacer
+        Para j = 0 Hasta limMt Hacer
+            Si (j > i) Entonces
+                Escribir mt[i, j]
+            FinSi
+        FinPara
+    FinPara
+    
+    
+    Para i = 0 Hasta limMt Hacer
+        Para j = 0 Hasta limMt Hacer
+            Si (j < i) Entonces
+                Escribir mt[i, j]
+            FinSi
+        FinPara
+    FinPara	
+Fin
